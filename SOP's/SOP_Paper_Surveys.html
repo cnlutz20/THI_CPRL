@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SOP_Paper_Surveys.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="standard-operating-procedure-sop-for-processing-paper-surveys-for-events">Standard Operating Procedure (SOP) for Processing Paper Surveys for Events</h1>
+<p>Document Control</p>
+<p>SOP Number: [Insert Number]
+Version: [Insert Version]
+Effective Date: [Insert Date]
+Review Date: [Insert Date]
+Prepared By: [Insert Name/Position]
+Approved By: [Insert Name/Position]</p>
+<h2 id="1-purpose-unedited">1. Purpose (unedited)</h2>
+<p>This SOP outlines the procedures for processing paper surveys collected during events, including digitization and data management. The goal is to ensure accurate and efficient data handling for analysis and reporting.</p>
+<h2 id="2-scope-unedited">2. Scope (unedited)</h2>
+<p>This procedure applies to all staff involved in collecting, processing, and analyzing paper surveys for events.</p>
+<h2 id="3-responsibilities-unedited">3. Responsibilities (unedited)</h2>
+<p>Event Coordinator: Ensure surveys are collected and stored properly.
+Data Entry Personnel: Responsible for digitizing the paper surveys.
+Quality Control: Review the digitized data for accuracy.</p>
+<h2 id="4-materials-needed-unedited">4. Materials Needed (unedited)</h2>
+<p>Paper surveys
+Scanning device (scanner or mobile app)
+Computer with data entry software (e.g., Excel, Google Sheets)
+Data cleaning tools (if applicable)
+Backup storage (cloud or external hard drive)</p>
+<h2 id="5-procedure-unedited">5. Procedure (unedited)</h2>
+<h3 id="51-collecting-paper-surveys-unedited">5.1 Collecting Paper Surveys (unedited)</h3>
+<p>Ensure surveys are completed fully by participants.
+Collect surveys at the end of the event or designated collection points.
+Store surveys securely in a designated area to prevent loss or damage.</p>
+<h3 id="52-preparing-for-digitization-not-done">5.2 Preparing for Digitization (not done)</h3>
+<ul>
+<li>Create sheet to compile responses
+<ul>
+<li>include all respondents and their responses</li>
+<li>should include columns for:
+<ul>
+<li>Respondant name</li>
+<li>Respondent type
+<ul>
+<li>should fall under the current list
+<ul>
+<li>Legislator</li>
+<li>Executive Official</li>
+<li>Education Leader</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Question₁ - Questionₙ headers
+<ul>
+<li>fill out questions based on how you would like them to be displayed.</li>
+<li>see guidelines below for more info on how to format question headers</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="521-file-upload-values">5.2.1: File upload Values</h4>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Column Header</th>
+<th>Accepted Row Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>&quot;name&quot;, &quot;respondent&quot;</td>
+<td>name or &quot;anonymous&quot;</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>&quot;Type&quot;</td>
+<td>Respondent type (legislator, executive official, education leader, other)</td>
+</tr>
+<tr>
+<td>Other</td>
+<td></td>
+<td>Only fill in if Type is &quot;other&quot;</td>
+</tr>
+<tr>
+<td>Questionₙ</td>
+<td>[Question as you would like displayed] <br><br> for Session Rating: &quot;Session Rating: [Session name]&quot; <br><br> Material Rating: &quot;Material Rating: [Material name]&quot; <br></td>
+<td>Quantitative Values: Likert scale (1-5) <br><br> Qualitative Values: Text</td>
+</tr>
+</tbody>
+</table>
+<h4 id="521-example">5.2.1: Example</h4>
+
+<p><img src="survey_sop.png" alt="alt text"></p>
+<p>Check Completeness: Ensure all surveys are complete and legible. Remove any surveys that are damaged or unusable.
+Organize Surveys: Sort surveys by type or session to streamline data entry.</p>
+<h3 id="53-digitization-process-unedited">5.3 Digitization Process (unedited)</h3>
+<p>Scanning:
+Use a scanner or a mobile app to digitize each paper survey.
+Save scanned files in a designated folder on your computer.
+Choose a file format (e.g., PDF, JPG) that maintains clarity.
+Data Entry:
+Open the digitized survey in your data entry software.
+Input responses accurately, following the survey structure.
+Use drop-down lists or checkboxes for standardized responses to minimize errors.</p>
+<h3 id="54-data-cleaning-unedited">5.4 Data Cleaning (unedited)</h3>
+<p>Review the entered data for accuracy.
+Correct any discrepancies or errors found during the review.
+Remove duplicates if applicable.</p>
+<h3 id="55-storing-data-unedited">5.5 Storing Data (unedited)</h3>
+<p>Save the finalized dataset in an accessible and secure location.
+Back up the data regularly (e.g., weekly) to prevent loss.</p>
+<h3 id="56-analyzing-data-unedited">5.6 Analyzing Data (unedited)</h3>
+<p>Prepare the data for analysis based on event objectives.
+Use appropriate statistical methods and tools to analyze responses.</p>
+<h3 id="57-reporting-results-unedited">5.7 Reporting Results (unedited)</h3>
+<p>Compile the findings into a report or presentation.
+Share the results with relevant stakeholders in a timely manner.</p>
+<h2 id="6-considerations-for-digitizing-paper-surveys-unedited">6. Considerations for Digitizing Paper Surveys (unedited)</h2>
+<p>Legibility: Ensure that handwriting is clear and easily readable to avoid misinterpretation.
+Data Privacy: Protect sensitive information in compliance with privacy regulations (e.g., GDPR).
+Format Consistency: Maintain consistency in how data is entered to facilitate analysis (e.g., use the same units or scales).
+Training: Provide training for personnel on how to digitize and enter data accurately.
+Feedback Loop: Implement a process for staff to report issues or suggest improvements to the digitization process.</p>
+<h2 id="7-review-and-revisions-unedited">7. Review and Revisions (unedited)</h2>
+<p>This SOP should be reviewed annually or as needed to incorporate improvements or changes in technology.
+End of SOP</p>
+<p>Appendices:</p>
+<p>Appendix A: Sample Survey Template
+Appendix B: Data Entry Checklist
+Appendix C: Data Backup Protocol</p>
+
+</body>
+</html>
