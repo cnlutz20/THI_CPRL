@@ -65,6 +65,8 @@ state_abbreviations = [
     "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY", "DC"
 ]
 
+
+print("a statement")
 state_abbreviations_reg = []
 for abv in state_abbreviations:
     for_regex = f'^{abv}'
