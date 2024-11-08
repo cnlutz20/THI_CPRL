@@ -11,7 +11,8 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 pd.options.mode.chained_assignment = None  # default='warn'
 
-# %% gathering leg files
+# %% 
+# gathering leg files 
 
 os.chdir(r'C:\Users\clutz\OneDrive - THE HUNT INSTITUTE\Documents\Data\legislator data')
 legislator_files = glob.glob('**/*.xlsx') 
@@ -38,7 +39,7 @@ for i,file in enumerate(legislator_files):
 all_legs = pd.concat(dfs)
 
 os.chdir(r'C:\Users\clutz\OneDrive - THE HUNT INSTITUTE\Documents\Data\attendance data\exports')
-all_legs.to_csv('list_of_legislators_11_8_2024.csv')
+# all_legs.to_csv('list_of_legislators_11_8_2024.csv')
 
 
 # %% gathering attendance data
@@ -66,7 +67,7 @@ state_abbreviations = [
 ]
 
 
-print("a statement")
+
 state_abbreviations_reg = []
 for abv in state_abbreviations:
     for_regex = f'^{abv}'
@@ -226,6 +227,9 @@ filtered_df = event_data[event_data['title'].astype(str).apply(lambda x: bool(re
 
 
 no_districts = filtered_df[~(filtered_df['org'].str.contains(r'[Dd]istrict|[Dd](-|\s)?\d{2,3}', regex=True) | filtered_df['title'].str.contains(r'[Dd]istrict|[Dd](-|\s)?\d{2,3}', regex=True))]
+w_districts = filtered_df[(filtered_df['org'].str.contains(r'[Dd]istrict|[Dd](-|\s)?\d{2,3}', regex=True) | filtered_df['title'].str.contains(r'[Dd]istrict|[Dd](-|\s)?\d{2,3}', regex=True))]
+
+
 os.chdir(r'C:\Users\clutz\OneDrive - THE HUNT INSTITUTE\Documents\Data\attendance data\exports')
 no_districts.to_csv("no_districts_export_11_7_2024.csv", index=False)
 
