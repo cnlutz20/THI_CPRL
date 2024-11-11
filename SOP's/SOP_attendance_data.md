@@ -36,6 +36,8 @@ Compile data into a spreadsheet file of your choice (csv or xlsx) using the tabl
 | last name | last name only no middle names, please check quorum for how name is displayed. | "Doe" |
 | title | Position title | "Program Director"
 | org | Organization name | "William and Flora Hewlett Foundation"
+| district | District of legislator: <br> This field is optional. Examples should be confined to the district number alone. Please remove extraneous descriptors such as "District", "HD - ", etc. | "2" <br> "2B"
+| state | Optional Field: If event is only one state this can be filled in or left blank. Examples include SLR events. Should only be the state intials, not the full name of the state.  | "NC", "AZ"
 <br>
 
 ### 5. Data Cleaning
@@ -44,7 +46,7 @@ Compile data into a spreadsheet file of your choice (csv or xlsx) using the tabl
 <br>
 
 ### 6. Storing Data (unedited)
-The data analyst will be responsible for retriving data file and storing in database for future refernce and integration into systems
+The data analyst will be responsible for retriving data file and storing in database for future refernce and integration into systems. Once submitted, data analyst will perform necessary data cleaning and integration into the system. 
 <br>
 
 
