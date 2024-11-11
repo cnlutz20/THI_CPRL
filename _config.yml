@@ -3,7 +3,7 @@ title: THI Data SOP's
 author:
   name: Christian Lutz
   email: clutz@hunt_institute.org
-description: "SOPS for data"
+description: "SOPS for data" 
 
 # Build settings
 remote_theme: pages-themes/cayman@v0.2.0
