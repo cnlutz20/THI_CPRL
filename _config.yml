@@ -5,7 +5,44 @@ author:
   email: clutz@hunt_institute.org
 description: "SOPS for data" 
 
+
+
 # Build settings
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-gist
+  - jekyll-github-metadata
+
+# Pagination settings
+paginate: 5
+paginate_path: "/page:num/"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Exclusions
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Include additional files
+include:
+  - _pages
+
+# Markdown processor
+markdown: kramdown
+
+# Social media settings (optional)
+twitter_username: your_twitter_username
+github_username: your_github_username
