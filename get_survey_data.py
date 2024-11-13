@@ -63,8 +63,6 @@ no_data = evals_no_excel.merge(eval_tracking, left_on='event', right_on='event')
 os.chdir(r'C:\Users\clutz\OneDrive - THE HUNT INSTITUTE\Documents\Data\surveys')
 no_data.to_csv('no_data.csv')
 # %%
-df1.merge(df2, left_on='lkey', right_on='rkey')
-titanic["Age"] > 35
 
 
 
