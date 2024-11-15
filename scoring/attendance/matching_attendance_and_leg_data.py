@@ -237,8 +237,3 @@ no_districts.to_csv("no_districts_export_11_7_2024.csv", index=False)
 
 # %%
 
-
-only_legs_event
-if re.search(r'[Rr]epresentative|[Ss]enator|[Ll]egislator',str(df['title'].iloc[i])) or re.search(r'[Ss]enate|[Hh]ouse of ([Rr]epresentatives)?(Delegates)?|[Dd]istrict|[Ss]tate [Hh]ouse', str(df['org'].iloc[i])):
-
-only_legs_event = 
