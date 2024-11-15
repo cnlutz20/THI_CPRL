@@ -26,9 +26,9 @@ activities_df = activities_df.loc[:,['helper', 'activities_score']]
 influence_df = influence_df.loc[:,['helper', 'influence_score']]
 
 
-first_merge = pd.merge(legislators_df, activities_df, how="outer", on='helper')
+first_merge = pd.merge(legislators_df, influence_df, how="outer", on='helper')
 # print(first_merge.to_string())
-second_merge = pd.merge(first_merge, influence_df, how="outer", on='helper')
+second_merge = pd.merge(first_merge, activities_df, how="outer", on='helper')
 # print(first_merge.to_string())
 
 
@@ -37,13 +37,8 @@ print(legislators_df.columns)
 print(activities_df.columns)
 print(influence_df.columns)
 final_df = second_merge
+first_merge.to_csv(r'C:\Users\clutz\THE HUNT INSTITUTE\The Hunt Institute Team Site - Documents\Development (formerly Grants Management)\!Administrative\Christian\Legislators Data\leg_data_update_10_2024\build files\compiled scores\first_merge.csv', index=False)
 final_df.to_csv(r'C:\Users\clutz\THE HUNT INSTITUTE\The Hunt Institute Team Site - Documents\Development (formerly Grants Management)\!Administrative\Christian\Legislators Data\leg_data_update_10_2024\build files\compiled scores\compiled_scores.csv', index=False)
-
-
-# print(legislators_df.to_string())
-# print(activities_df.to_string())
-# print(influence_df.to_string())
-
 
 
 

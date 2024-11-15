@@ -169,7 +169,10 @@ def create_state_leg_files(df, state_list):
 
 # %%
 states = ['ND', 'NM', 'OH', 'OK', 'VA', 'WV', 'AL', 'CT', 'IL', 'IN', 'KS', 'MO', 'NC']
+
 create_state_leg_files(officials, states)
+# %% one off creations
+create_state_leg_files(officials, ["NC"])
 
 # %%
 
