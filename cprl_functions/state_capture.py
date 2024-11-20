@@ -2,20 +2,16 @@
 
 # %%
 #importing modules
-import os, sys, json, datetime, re, xlrd  # Provides OS-dependent functionality, system-specific parameters, JSON handling, and date/time manipulation
+import re  
 import pandas as pd             # Provides data structures and data analysis tools
 from openpyxl import Workbook
-import numpy as np              # Supports large, multi-dimensional arrays and matrices
-import requests
-import glob
-import time
-from tqdm import tqdm
+
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 pd.options.mode.chained_assignment = None  # default='warn'
-from IPython.display import display_markdown
+
 
 
 # %%
@@ -48,7 +44,19 @@ for abv in state_abbreviations:
 state_pat = re.compile("|".join(state_list))
 state_abv_pat = re.compile("|".join(state_abbreviations_reg))
 #dictionary creation for future reference in later cells
-state_ref = dict(zip(state_list, state_abbreviations))
 codes = list(range(10,61,1))
-state_coding = dict(zip(state_abbreviations, codes))
+
 thi_states = ['ND', 'NM', 'OH', 'OK', 'VA', 'WV', 'AL', 'CT', 'IL', 'IN', 'KS', 'MO', 'NC']
+state_ref = dict(zip(state_list, state_abbreviations))
+state_coding = dict(zip(state_abbreviations, codes))
+
+save_list = [thi_states,state_ref, state_coding]
+
+for name in dir():
+    if name not in save_list:
+        del globals()[name]
+
+
+for name in dir():
+    if name not in save_list:
+        del locals()[name]
