@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: cprl_functions
+Version: 0.0.7
+Summary: cprl_functions
+Author: Chrsitian Lutz
+Author-email: <clutz@hunt-institute.org>
+Keywords: python,first package
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+
+Functions used for managing and migrating data into cprl
