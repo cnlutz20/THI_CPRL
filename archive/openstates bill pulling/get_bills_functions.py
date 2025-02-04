@@ -38,7 +38,7 @@ from tqdm import tqdm
 def get_all_bills(state, *session):
 
 
-    API_KEY = '1d0dc220-f3f3-4f05-b73f-10a7e08f4451'  # Replace with your actual API key
+    API_KEY = 'd07ea2eb-e174-46fe-851b-3e5df5eb2fe8'  # Replace with your actual API key
     BASE_URL = 'https://v3.openstates.org/bills'
     PARAMS = {
         'jurisdiction': state,
@@ -78,7 +78,7 @@ def get_all_bills(state, *session):
     #iterate through all the pages
     dfs = []
     for page in tqdm(range(1,max_page,1)):
-        time.sleep(6)
+        # time.sleep(3)
         
         API_KEY = '1d0dc220-f3f3-4f05-b73f-10a7e08f4451'  # Replace with your actual API key
         BASE_URL = 'https://v3.openstates.org/bills'
@@ -96,7 +96,7 @@ def get_all_bills(state, *session):
 
         params = PARAMS.copy()
         # year = 2023 #only for troubleshooting; comment out when using it fully as a defined function
-        params['session'] = session
+        # params['session'] = session
         
         response = requests.get(BASE_URL, headers=headers, params=params)
         content = response.json()
@@ -226,7 +226,18 @@ def get_all_bills(state, *session):
 
 
     # return full_data
+# %% 2025 data pull
+thi_states = ["OK", "VA", "WV", "AL", "CT", "IL", "IN", "KS", "MO", "NC", "ND", "NM", "OH"]
 
+all_dfs = []
+for state in thi_states:
+    all_bills = get_all_bills(state)
+    all_dfs.append(all_bills)
+
+
+# %%
+
+test_df = get_all_bills('nc')
 
 # %%    """Fetch a list of bills for a specific state."""
     
