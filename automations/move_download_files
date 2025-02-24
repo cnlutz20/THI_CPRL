@@ -1,0 +1,94 @@
+
+# %%
+import re
+import pandas as pd
+import glob as glob
+import os  # File and directory operations
+import shutil  # File and directory manipulation (move, copy, delete)
+import sys  # System-specific parameters and functions
+import datetime  # Working with dates and times
+import logging  # Logging messages for debugging and tracking
+import json  # Working with JSON data
+import csv  # Handling CSV files
+import pathlib  # Object-oriented filesystem paths
+import tempfile  # Creating temporary files and directories
+import argparse  # Parsing command-line arguments
+
+from datetime import date
+
+# %%
+
+def move_file(source, destination):
+  """Moves a file from the source path to the destination path.
+
+  Args:
+    source: The path of the file to move.
+    destination: The path to move the file to.
+  """
+  try:
+    shutil.move(source, destination)
+    print(f"File moved successfully from {source} to {destination}")
+  except FileNotFoundError:
+    print(f"Error: File not found at {source}")
+  except Exception as e:
+    print(f"An error occurred: {e}")
+# %%
+# Example usage
+source_file = "path/to/your/source/file.txt"
+destination_folder = "path/to/your/destination/folder"
+
+# Ensure the destination directory exists
+os.makedirs(destination_folder, exist_ok=True)
+
+# Create the full destination path
+destination_file = os.path.join(destination_folder, os.path.basename(source_file))
+
+move_file(source_file, destination_file)
+# %%
+
+
+alt_downloads_path = r"C:\Users\clutz\OneDrive - THE HUNT INSTITUTE\Desktop\downloads_alt"
+
+files = glob.glob(fr'{alt_downloads_path}\*')
+copied_folder = glob.glob(r'C:\Users\clutz\OneDrive - THE HUNT INSTITUTE\Desktop\downloads_alt\*copied*')[0]
+
+# %%
+for file in files:
+    print('##############')
+    print(file)
+    if not os.path.exists(file):
+        
+        print("filename is wrong or doesn't exist")
+        continue
+    #check if its leg files
+    if re.search(r'.elected_official.', file) or re.search(r'.tracking.', file):
+        eo_dl_path = r"C:\Users\clutz\THE HUNT INSTITUTE\The Hunt Institute Team Site - Documents\Development (formerly Grants Management)\!Administrative\Christian\THII\legislator data\quorum_downloads"
+        print(fr'{os.path.basename(file)} is going to legislators downloads')
+        print(os.path.join(eo_dl_path,os.path.basename(file)))
+        copy_dest = os.path.join(eo_dl_path,os.path.basename(file))
+        new_path = eo_dl_path
+
+    elif re.search(r'.bills.', file):
+        bills_dl_path = r"C:\Users\clutz\THE HUNT INSTITUTE\The Hunt Institute Team Site - Documents\Development (formerly Grants Management)\!Administrative\Christian\THII\bill_data\quorum downloads"
+        print(fr'{os.path.basename(file)} is going to bills downloads')
+        print(os.path.join(bills_dl_path,os.path.basename(file)))
+        copy_dest = os.path.join(bills_dl_path,os.path.basename(file))
+        new_path = bills_dl_path
+
+    else:
+        print(f'got nothing for ya for {file}')
+        continue
+    
+    #checks that a file with the same name doesn't already exist
+    if os.path.exists(copy_dest):
+       replace_date = str(date.today()).replace('-','_')
+       old_folder = os.path.join("old", new_path)
+       move_file(copy_dest, old_folder)
+
+    #copy file then move to copied
+    dest = shutil.copy(file, copy_dest)
+
+    moving = move_file(file, copied_folder)
+
+# %%
+
