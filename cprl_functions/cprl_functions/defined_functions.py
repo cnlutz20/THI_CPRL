@@ -41,3 +41,4 @@ def create_pk(df,column):
         df.loc[i,'district'] = match
         df.loc[i,'primary_key'] = key_code
     return df
+create_pk(df, 'dis')
